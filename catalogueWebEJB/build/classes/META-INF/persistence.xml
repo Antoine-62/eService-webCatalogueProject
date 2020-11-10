@@ -8,6 +8,10 @@
 	<persistence-unit name="managerCatalog" transaction-type="JTA">
 		<jta-data-source>java:/CatalogDS</jta-data-source>
 		<class>fr.eilco.model.CategorieBean</class>
+		<class>fr.eilco.model.ClientBean</class>
+		<class>fr.eilco.model.CommandeClientBean</class>
+		<class>fr.eilco.model.ProduitBean</class>
+		<class>fr.eilco.model.ProduitCommandeBean</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<!--property name="hibernate.hbm2ddl.auto" value="update"/>-->
