@@ -7,7 +7,7 @@
   <module>
     <web>
       <web-uri>catalogueWeb.war</web-uri>
-      <context-root>catalogueWeb</context-root>
+      <context-root>MonMagasin</context-root>
     </web>
   </module>
 </application>
