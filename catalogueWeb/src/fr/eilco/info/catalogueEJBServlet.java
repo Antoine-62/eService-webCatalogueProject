@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+import fr.eilco.ejb.accesCatalogueBeanRemote;
 import fr.eilco.ejb.catalogueEJBRemote;
 import fr.eilco.model.CategorieBean;
 
@@ -37,6 +37,7 @@ public class catalogueEJBServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String name= "titi";
 		String message = "";
+		CategorieBean bean = new CategorieBean();
 		//ConnexionJNDI (annuairepour localiserl'EJB)
 
 		try{
@@ -47,22 +48,19 @@ public class catalogueEJBServlet extends HttpServlet {
 			final String moduleName= "catalogueWebEJB";//final String distinctName = "";
 			//localierejbsurjboss7.2
 			//sur jbosse ap n'est plus nécessaire de spécifier distinct name
-			final String beanName= "catalogueJNDI";
-			final String viewClassName=catalogueEJBRemote.class.getName();//probléme ici
+			final String beanName= "accesCatalogueBeanJNDI";
+			final String viewClassName=accesCatalogueBeanRemote.class.getName();//probléme ici
 			
 			//HelloEJBRemote remote = (HelloEJBRemote) 
 			// context.lookup("ejb:"+appName+"/"+moduleName+"/"+
 			//"/"+distinctName+"/"+beanName+"!"+viewClassName);
-			catalogueEJBRemote remote= (catalogueEJBRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
-			message = remote.getCategorie();
+			accesCatalogueBeanRemote remote= (accesCatalogueBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
+			bean = remote.getCategorie();
 			}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("le message est");
-		System.out.println(message);
-		CategorieBean bean = new CategorieBean();
-		bean.setCategorie(message);
 		session.setAttribute("beanCategorie", bean);
 		response.sendRedirect("HelloEJB2.jsp");
 	}

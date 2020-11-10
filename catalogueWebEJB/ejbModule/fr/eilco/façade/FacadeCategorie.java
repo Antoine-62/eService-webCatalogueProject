@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 import fr.eilco.model.CategorieBean;
 
 public class FacadeCategorie extends FacadeAbstraite<CategorieBean>{
-	@PersistenceContext(unitName = "managerCatalog")
+	
     private EntityManager mc;
 	
 	@Override
@@ -14,7 +14,8 @@ public class FacadeCategorie extends FacadeAbstraite<CategorieBean>{
         return mc;
     }
 	
-	public FacadeCategorie() {
+	public FacadeCategorie(EntityManager mc) {
         super(CategorieBean.class);
+        this.mc = mc;
     }  
 }
