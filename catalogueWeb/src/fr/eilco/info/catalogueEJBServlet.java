@@ -1,5 +1,6 @@
 package fr.eilco.info;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import javax.naming.Context;
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eilco.ejb.accesCatalogueBeanRemote;
-import fr.eilco.ejb.catalogueEJBRemote;
 import fr.eilco.model.CategorieBean;
 
 /**
@@ -37,7 +37,7 @@ public class catalogueEJBServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String name= "titi";
 		String message = "";
-		CategorieBean bean = new CategorieBean();
+		ArrayList<CategorieBean> bean = new ArrayList<CategorieBean>();
 		//ConnexionJNDI (annuairepour localiserl'EJB)
 
 		try{
@@ -55,7 +55,7 @@ public class catalogueEJBServlet extends HttpServlet {
 			// context.lookup("ejb:"+appName+"/"+moduleName+"/"+
 			//"/"+distinctName+"/"+beanName+"!"+viewClassName);
 			accesCatalogueBeanRemote remote= (accesCatalogueBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
-			bean = remote.getCategorie();
+			bean = remote.getListCategories();
 			}
 		catch(Exception e) {
 			e.printStackTrace();

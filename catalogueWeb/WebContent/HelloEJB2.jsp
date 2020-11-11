@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Bonjour ${beanCategorie.categorie}
+<c:forEach var="aBean" items="${beanCategorie}">
+Test ${aBean.categorie}</c:forEach>
 </body>
 </html>

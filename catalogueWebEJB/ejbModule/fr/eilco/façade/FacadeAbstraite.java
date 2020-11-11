@@ -1,4 +1,5 @@
 package fr.eilco.façade;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,12 +30,6 @@ public abstract class FacadeAbstraite<T> {
     public T find(int id) {
     	System.out.print(this.getEntityManager());
         return this.getEntityManager().find(this.entity, id);
-    }
-    
-    public List<T> findAll() {
-        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        cq.select(cq.from(entity));
-        return getEntityManager().createQuery(cq).getResultList();
     }
 
 }

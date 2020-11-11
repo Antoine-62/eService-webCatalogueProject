@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import fr.eilco.model.ProduitCommandeBean;
 
 public class FacadadeProduitCommande extends FacadeAbstraite<ProduitCommandeBean>{
-	@PersistenceContext(unitName = "managerCatalog")
+
     private EntityManager mc;
 	
 	@Override
@@ -15,7 +15,8 @@ public class FacadadeProduitCommande extends FacadeAbstraite<ProduitCommandeBean
         return mc;
     }
 	
-	public FacadadeProduitCommande() {
+	public FacadadeProduitCommande(EntityManager mc) {
         super(ProduitCommandeBean.class);
+        this.mc = mc;
     }  
 }

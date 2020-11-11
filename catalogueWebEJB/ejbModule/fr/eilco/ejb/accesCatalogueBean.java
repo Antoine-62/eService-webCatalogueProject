@@ -30,7 +30,7 @@ public class accesCatalogueBean implements accesCatalogueBeanRemote, accesCatalo
     }
     
     public ArrayList<CategorieBean> getListCategories(){
-    	FacadeCategorie test = new FacadeCategorie();
+    	FacadeCategorie test = new FacadeCategorie(mc);
     	ArrayList<CategorieBean> categoriesList = (ArrayList<CategorieBean>) test.findAll();
     	return categoriesList;
     }

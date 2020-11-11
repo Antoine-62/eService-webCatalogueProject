@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import fr.eilco.model.CommandeClientBean;
 
 public class FacadeCommandeClient extends FacadeAbstraite<CommandeClientBean>{
-	@PersistenceContext(unitName = "managerCatalog")
+
     private EntityManager mc;
 	
 	@Override
@@ -15,7 +15,8 @@ public class FacadeCommandeClient extends FacadeAbstraite<CommandeClientBean>{
         return mc;
     }
 	
-	public FacadeCommandeClient() {
+	public FacadeCommandeClient(EntityManager mc) {
         super(CommandeClientBean.class);
+        this.mc = mc;
     } 
 }

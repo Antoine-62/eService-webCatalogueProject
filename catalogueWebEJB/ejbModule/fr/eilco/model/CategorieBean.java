@@ -5,10 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema="Catalogweb", name="categorie")
+@NamedQuery(name = "CategorieBean.findAll", query = "SELECT m FROM CategorieBean m")
 public class CategorieBean implements Serializable {
 	private int id;
 	private String aCategorie= "";
