@@ -62,7 +62,7 @@ public class catalogueEJBServlet extends HttpServlet {
 		}
 		System.out.println("le message est");
 		session.setAttribute("beanCategorie", bean);
-		response.sendRedirect("HelloEJB2.jsp");
+		response.sendRedirect("categories.jsp");
 	}
 
 	/**
