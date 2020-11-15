@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
+@Table(schema="Catalogweb", name="commandeclient")
 public class CommandeClientBean {
 	private int id;
 	private double aMontant;

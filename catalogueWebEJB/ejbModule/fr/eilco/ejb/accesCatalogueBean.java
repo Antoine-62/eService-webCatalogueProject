@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import fr.eilco.model.CategorieBean;
 import fr.eilco.model.ProduitBean;
 import fr.eilco.façade.FacadeCategorie;
+import fr.eilco.façade.FacadeProduit;
 import java.util.ArrayList;
 
 /**
@@ -46,7 +47,8 @@ public class accesCatalogueBean implements accesCatalogueBeanRemote, accesCatalo
     }
     
     public ArrayList<ProduitBean> getListProduits(int id){
-    	ArrayList<ProduitBean> produitList = new ArrayList<ProduitBean>();
+    	FacadeProduit facadeproduit = new FacadeProduit(mc);
+    	ArrayList<ProduitBean> produitList = (ArrayList<ProduitBean>) facadeproduit.findAll(id);
     	return produitList;
     }
 }

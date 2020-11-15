@@ -4,9 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import fr.eilco.model.CategorieBean;
 
-
+@Entity
+@Table(schema="Catalogweb", name="produit")
+@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorie_id = :categorie_id")
 public class ProduitBean {
 	private int id;
 	private String nom;
