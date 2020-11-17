@@ -7,4 +7,7 @@
     <c:forEach var="aBean" items="${beanCategorie}">
 		Test ${aBean.categorie}
 	</c:forEach>
+	<c:forEach var="pBean" items="${beanCategorie2}">
+		Test ${pBean.nom}
+	</c:forEach>
 </body>

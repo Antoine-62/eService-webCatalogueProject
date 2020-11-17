@@ -11,7 +11,7 @@ La boutique du ch'nord
 <nav>
 	<ul>
 		<li><a href = "catalogueServlet">Accueil</a> </li>
-		<li><a href = "catalogueServlet">Categories</a> </li>			
+		<li><a href = "produitEJBservlet">Categories</a> </li>			
 		<li><a href = "catalogueEJBServlet">Votre panier</a></li>						
 	</ul>
 </nav>

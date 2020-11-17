@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="Catalogweb", name="commandeclient")
-public class CommandeClientBean {
+public class CommandeClientBean implements Serializable {
 	private int id;
 	private double aMontant;
 	private String aDateCreation;

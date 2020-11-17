@@ -11,8 +11,8 @@ import fr.eilco.model.CategorieBean;
 
 @Entity
 @Table(schema="Catalogweb", name="produit")
-@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorie_id = :categorie_id")
-public class ProduitBean {
+@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorieId = :categorie_id")
+public class ProduitBean implements Serializable{
 	private int id;
 	private String nom;
 	private double prix;

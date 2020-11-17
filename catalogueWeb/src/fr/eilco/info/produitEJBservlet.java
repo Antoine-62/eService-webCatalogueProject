@@ -1,4 +1,5 @@
 package fr.eilco.info;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -7,6 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,18 +16,19 @@ import javax.servlet.http.HttpSession;
 
 import fr.eilco.ejb.accesCatalogueBeanRemote;
 import fr.eilco.model.CategorieBean;
+import fr.eilco.model.ProduitBean;
 
 /**
- * Servlet implementation class catalogueEJBServlet
+ * Servlet implementation class produitEJBservlet
  */
-@WebServlet("/catalogueEJBServlet")
-public class catalogueEJBServlet extends HttpServlet {
+@WebServlet("/produitEJBservlet")
+public class produitEJBservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public catalogueEJBServlet() {
+    public produitEJBservlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,11 +37,14 @@ public class catalogueEJBServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
 		String name= "titi";
 		String message = "";
-		ArrayList<CategorieBean> bean = new ArrayList<CategorieBean>();
+		CategorieBean bean = new CategorieBean();
+		ArrayList<ProduitBean> produitList = new ArrayList<ProduitBean>();
 		//ConnexionJNDI (annuairepour localiserl'EJB)
+		System.out.println("bo2");
 
 		try{
 			final Hashtable jndiProperties= new Hashtable();
@@ -55,14 +61,17 @@ public class catalogueEJBServlet extends HttpServlet {
 			// context.lookup("ejb:"+appName+"/"+moduleName+"/"+
 			//"/"+distinctName+"/"+beanName+"!"+viewClassName);
 			accesCatalogueBeanRemote remote= (accesCatalogueBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
-			System.out.print("je suis ici toto");
-			bean = remote.getListCategories();
+			System.out.print("je suis ici");
+			produitList=remote.getListProduits(1);
+			System.out.print("la liste de produit"+produitList.get(1).getNom());
 			}
 		catch(Exception e) {
+			System.out.print("meuh");
 			e.printStackTrace();
 		}
-		System.out.println("le message est");
-		session.setAttribute("beanCategorie", bean);
+		//System.out.print("la liste de produit"+bean.getProduits().get(1).getNom());
+		System.out.print("prout");
+		session.setAttribute("beanCategorie2", produitList);
 		response.sendRedirect("categories.jsp");
 	}
 
