@@ -39,8 +39,8 @@ public class produitEJBservlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		String name= "titi";
-		String message = "";
+		System.out.println("id recup :" + request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		CategorieBean bean = new CategorieBean();
 		ArrayList<ProduitBean> produitList = new ArrayList<ProduitBean>();
 		//ConnexionJNDI (annuairepour localiserl'EJB)
@@ -62,7 +62,7 @@ public class produitEJBservlet extends HttpServlet {
 			//"/"+distinctName+"/"+beanName+"!"+viewClassName);
 			accesCatalogueBeanRemote remote= (accesCatalogueBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
 			System.out.print("je suis ici");
-			produitList=remote.getListProduits(1);
+			produitList=remote.getListProduits(id);
 			System.out.print("la liste de produit"+produitList.get(1).getNom());
 			}
 		catch(Exception e) {

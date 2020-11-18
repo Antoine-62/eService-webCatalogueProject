@@ -27,6 +27,9 @@ nav ul {
   nav ul li a:hover {
     background-color: rgb(20, 131, 210);
   }
+  .active {
+  background-color: #4CAF50;
+}
   
   footer{
     background-color: #333;
@@ -34,5 +37,37 @@ nav ul {
     padding:0.5%;
     text-align: center;
 }
+
+.navCategories ul{
+	background-color: rgb(20, 131, 210);
+}
+
+.navCategories ul li a:hover {
+    background-color: rgb(20, 62, 120);
+  }
+  
+ .List{
+    width: 90%;
+    margin: 4% 3%;
+    padding:2%;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666666;
+  }
+
+  .List h1{
+      text-align: center;
+  }
+
+  .List table{
+     width: 100%;
+     text-align: center;
+  }
+
+ .List td {
+    border-top: 1px solid #ddd;
+    padding: 2% 0%;
+  }
   
   
