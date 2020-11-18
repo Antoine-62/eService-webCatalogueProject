@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="Catalogweb", name="client")
-public class ClientBean {
+public class ClientBean implements Serializable{
 	private int id;
 	private String aNom= "";
 	private String aEmail= "";

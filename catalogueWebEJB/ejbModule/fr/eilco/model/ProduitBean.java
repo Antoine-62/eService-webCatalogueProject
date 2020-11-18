@@ -4,10 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import fr.eilco.model.CategorieBean;
 
-
-public class ProduitBean {
+@Entity
+@Table(schema="Catalogweb", name="produit")
+@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorieId = :categorie_id")
+public class ProduitBean implements Serializable{
 	private int id;
 	private String nom;
 	private double prix;

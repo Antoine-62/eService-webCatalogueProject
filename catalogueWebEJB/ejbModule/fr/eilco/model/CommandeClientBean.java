@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-public class CommandeClientBean {
+@Entity
+@Table(schema="Catalogweb", name="commandeclient")
+public class CommandeClientBean implements Serializable {
 	private int id;
 	private double aMontant;
 	private String aDateCreation;

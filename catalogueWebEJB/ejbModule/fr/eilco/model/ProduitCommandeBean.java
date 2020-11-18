@@ -1,5 +1,7 @@
 package fr.eilco.model;
 
-public class ProduitCommandeBean {
+import java.io.Serializable;
+
+public class ProduitCommandeBean implements Serializable{
 
 }
