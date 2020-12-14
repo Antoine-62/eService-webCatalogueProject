@@ -3,7 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <body>
-<script src="javascript/produit.js"></script>
+<script src="javascript/AjoutPanier.js"></script>
     <nav class="navCategories">
 	<ul>
 		<c:forEach var="aBean" items="${beanCategorie}">
@@ -17,9 +17,7 @@
         	<tr>
         		<td>${pBean.nom}</td>
         		<td> 
-                    <form name="university" method="post" action="Faculties.php">
-                        <button value = ${pBean.id}>Ajouter au panier</button>
-                    </form>
+                    <button onclick="ajoutPanier(${pBean.id})">Ajouter au panier</button>
                 </td>
         	</tr>
 		</c:forEach>

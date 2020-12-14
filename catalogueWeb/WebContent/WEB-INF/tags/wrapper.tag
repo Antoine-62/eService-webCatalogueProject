@@ -10,7 +10,7 @@
 	<ul>
 		<li><a href = "catalogueServlet">Accueil</a> </li>
 		<li><a href = "catalogueEJBServlet">Categories</a> </li>			
-		<li><a href = "">Votre panier</a></li>						
+		<li><a href = "PanierServlet">Votre panier</a></li>						
 	</ul>
 </nav>
   <jsp:doBody/>
