@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<template:insert template='/Template.jsp'>
-  <template:put name='title' content='Boutique - Mon panier' direct='true'/>
-  <template:put name='content' content='/contenuConfirmation.jsp'/>
-</template:insert>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:wrapper>
+	<jsp:include page="contenuConfirmation.jsp" flush="true">
+		<jsp:param name="MonPanier" value="${MonPanier}"/>
+	</jsp:include>
+</t:wrapper>

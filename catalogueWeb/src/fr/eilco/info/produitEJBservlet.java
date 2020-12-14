@@ -63,7 +63,7 @@ public class produitEJBservlet extends HttpServlet {
 			accesCatalogueBeanRemote remote= (accesCatalogueBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
 			System.out.print("je suis ici");
 			produitList=remote.getListProduits(id);
-			System.out.print("la liste de produit"+produitList.get(1).getNom());
+			//System.out.print("la liste de produit"+produitList.get(1).getNom());
 			}
 		catch(Exception e) {
 			System.out.print("meuh");

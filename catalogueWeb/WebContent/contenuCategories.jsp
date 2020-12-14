@@ -11,16 +11,24 @@
 		</c:forEach>			
 	</ul>
 </nav>
-<div class="List">
-    <table>
-    	<c:forEach var="pBean" items="${beanCategorie2}">
-        	<tr>
-        		<td>${pBean.nom}</td>
-        		<td> 
-                    <button onclick="ajoutPanier(${pBean.id})">Ajouter au panier</button>
-                </td>
-        	</tr>
-		</c:forEach>
-	</table>
-</div>
+<c:set var="user" value="${beanCategorie2}" />
+<c:choose> 
+	<c:when test="${empty beanCategorie2}">
+		<p>Veuillez selectionner une catégorie</p>	
+	</c:when>
+	<c:otherwise>
+		<div class="List">
+			<table>
+				<c:forEach var="pBean" items="${beanCategorie2}">
+			      	<tr>
+			        	<td>${pBean.nom}</td>
+			        	<td> 
+			            	<button onclick="ajoutPanier(${pBean.id})">Ajouter au panier</button>
+			            </td>
+			        	</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</c:otherwise>
+</c:choose>
 </body>

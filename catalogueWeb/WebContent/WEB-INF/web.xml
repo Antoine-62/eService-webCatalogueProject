@@ -9,4 +9,57 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+<!-- Servlet controleur de Struts -->
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+<!-- Mapping des url avec la servlet -->
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+<jsp-config>
+    <!-- Descripteur des bibliotheques personnalisees de Struts -->
+    <taglib>
+      <taglib-uri>/struts-bean</taglib-uri>
+      <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+      <taglib-uri>/struts-html</taglib-uri>
+      <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+      <taglib-uri>/struts-logic</taglib-uri>
+      <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+      <taglib-uri>/struts-nested</taglib-uri>
+      <taglib-location>/WEB-INF/struts-nested.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+      <taglib-uri>/struts-tiles</taglib-uri>
+      <taglib-location>/WEB-INF/struts-tiles.tld</taglib-location>
+    </taglib>
+  </jsp-config>
 </web-app>

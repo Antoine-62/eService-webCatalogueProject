@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+   "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+   "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+   
+<struts-config>
+<form-beans type="org.apache.struts.action.ActionFormBean">
+    <form-bean name="enregistrementForm" type="fr.eilco.struts.form.enregistrementForm" />
+	<form-bean name="validationForm" type="fr.eilco.struts.form.validationForm" />
+	<form-bean name="loginForm" type="fr.eilco.struts.form.loginForm" />
+</form-beans>
+    
+
+  <action-mappings type="org.apache.struts.action.ActionMapping">
+    <action path="/validerCommande" parameter="" input="/confirmation.jsp" scope="request"
+	  name="validationForm" type="fr.eilco.struts.action.validationAction">
+      <forward name="succes" path="/index.jsp"/>
+      <forward name="echec" path="/confirmation.jsp"/>
+    </action>
+	<action path="/validerEnregistrement" parameter="" input="/enregistrement.jsp" scope="request"
+	  name="enregistrementForm" type="fr.eilco.struts.action.enregistrementAction">
+      <forward name="succes" path="/index.jsp"/>
+      <forward name="echec" path="/enregistrement.jsp"/>
+    </action>
+    <action path="/validerLogin" parameter="" input="/login.jsp" scope="request"
+	  name="loginForm" type="fr.eilco.struts.action.loginAction">
+      <forward name="succes" path="/index.jsp"/>
+      <forward name="echec" path="/login.jsp"/>
+    </action>
+  </action-mappings>
+</struts-config>
