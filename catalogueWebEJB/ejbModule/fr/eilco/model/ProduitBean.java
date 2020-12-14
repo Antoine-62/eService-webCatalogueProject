@@ -1,24 +1,30 @@
 package fr.eilco.model;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import fr.eilco.model.CategorieBean;
 
 @Entity
 @Table(schema="Catalogweb", name="produit")
-@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorieId = :categorie_id")
+@NamedQuery(name = "ProduitBean.findAllByCatId", query = "SELECT p FROM ProduitBean p where p.categorie.id = :categorie_id")
 public class ProduitBean implements Serializable{
 	private int id;
 	private String nom;
 	private double prix;
 	private String description;
 	private String dernierMaj;
-	private int categorieId;
+	private CategorieBean categorie;
+	private List<ProduitCommandeBean> commandes = new ArrayList<>();
 	
 	@Id
 	@GeneratedValue
@@ -62,11 +68,19 @@ public class ProduitBean implements Serializable{
 		this.dernierMaj= dernierMaj;
 	}
 	
-	@Column(name="categorie_id")
-	public int getCategorieId(){
-		return this.categorieId;
+	@ManyToOne
+	public CategorieBean getCategorie() {
+		return this.categorie;
 	}
-	public void setCategorieId(int categorieId){
-		this.categorieId= categorieId;
+	public void setCategorie(CategorieBean cate) {
+		this.categorie = cate;
+	}
+	
+	@OneToMany(mappedBy = "idCommand.produit", cascade = CascadeType.ALL, orphanRemoval = true)
+	public List<ProduitCommandeBean> getLignesCommandes() {
+		return commandes;
+	}
+	public void setLignesCommandes(List<ProduitCommandeBean> lignesCommandes) {
+		this.commandes = lignesCommandes;
 	}
 }

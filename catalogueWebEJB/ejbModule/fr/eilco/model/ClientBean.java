@@ -5,16 +5,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema="Catalogweb", name="client")
+@NamedQuery(name = "ClientBean.findByEmail", query = "SELECT c FROM ClientBean c where c.email = :emailLogin")
 public class ClientBean implements Serializable{
 	private int id;
+	private String aPrenom= "";
 	private String aNom= "";
-	private String aEmail= "";
+	private String email= "";
 	private String aTelephone= "";
-	private String aAdresse= "";
+	private String aPassword = "";
 	
 	@Id
 	@GeneratedValue
@@ -24,6 +27,14 @@ public class ClientBean implements Serializable{
 	}
 	public void setId(int id){
 		this.id= id;
+	}
+	
+	@Column(name="prenom")
+	public String getPrenom(){
+		return this.aPrenom;
+	}
+	public void setPrenom(String pNom){
+		this.aPrenom= pNom;
 	}
 	
 	@Column(name="nom")
@@ -36,10 +47,10 @@ public class ClientBean implements Serializable{
 	
 	@Column(name="email")
 	public String getEmail(){
-		return this.aEmail;
+		return this.email;
 	}
 	public void setEmail(String pEmail){
-		this.aEmail= pEmail;
+		this.email= pEmail;
 	}
 	
 	@Column(name="telephone")
@@ -50,12 +61,12 @@ public class ClientBean implements Serializable{
 		this.aTelephone= pTelephone;
 	}
 	
-	@Column(name="adresse")
-	public String getAdresse(){
-		return this.aAdresse;
+	@Column(name="password")
+	public String getPassword(){
+		return this.aPassword;
 	}
-	public void setAdresse(String pAdresse){
-		this.aAdresse= pAdresse;
+	public void setPassword(String pPassword){
+		this.aPassword= pPassword;
 	}
 
 }
