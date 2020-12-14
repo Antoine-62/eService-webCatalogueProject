@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(schema="Catalogweb", name="categorie")
@@ -36,16 +38,4 @@ public class CategorieBean implements Serializable {
 	public void setCategorie(String pCategorie){
 		aCategorie= pCategorie;
 	}
-	
-	@OneToMany(targetEntity=ProduitBean.class, mappedBy="categorie", cascade=CascadeType.ALL)
-	private ArrayList<ProduitBean> produits = new ArrayList<>();
-	
-	public ArrayList<ProduitBean> getProduits() {
-		return produits;
-		}
-	
-	public void setProduits(ArrayList<ProduitBean> produits) {
-		System.out.println("boom");
-		this.produits = produits;
-		}
 }

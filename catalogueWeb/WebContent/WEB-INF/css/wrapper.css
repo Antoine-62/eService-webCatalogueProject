@@ -70,4 +70,36 @@ nav ul {
     padding: 2% 0%;
   }
   
+  .login{
+  margin: 5% 25%;
+  padding: 2%;
+  width:46%;
+  border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666666;
+    text-align: center;
+}
+
+.registration{
+  margin: 2% 20%;
+  padding: 2%;
+  width:56%;
+  border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666666;
+    text-align: center;
+}
+
+.wrapper {
+  min-height: 95%;
+  margin-bottom: -5%;
+}
+
+.titre{
+    text-align: center;
+    padding: 1%;
+    margin: 0%;
+  }
   

@@ -50,7 +50,7 @@ public class accesCatalogueBean implements accesCatalogueBeanRemote, accesCatalo
     	FacadeProduit facadeproduit = new FacadeProduit(mc);
     	System.out.print("boom23");
     	ArrayList<ProduitBean> produitList = (ArrayList<ProduitBean>) facadeproduit.findAll(id);
-    	System.out.print("la liste de produit"+produitList.get(1).getNom());
+    	// System.out.print("la liste de produit"+produitList.get(1).getNom());
     	return produitList;
     }
 }
