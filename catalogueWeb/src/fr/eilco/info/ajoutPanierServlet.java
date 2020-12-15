@@ -47,7 +47,7 @@ public class ajoutPanierServlet extends HttpServlet {
 	    }
 		session.setAttribute("MonPanier", produitList);
 		response.setContentType("text/plain");
-		response.getWriter().write("mission accompli");
+		response.getWriter().write("Le produit a été rajouter au panier.");
 	}
 
 	/**

@@ -6,7 +6,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <!DOCTYPE html>
 <body bgcolor="white">
-<h1 class="titre">Valiser votre commande</h1>
+<h1 class="titre">Se connecter</h1>
 <div class="login">
     <html:form action="validerLogin">
       <table border="0" align="center">
@@ -15,16 +15,14 @@
             Email :
           </td>
           <td align="left">
-            <html:text property="email" size="20" maxlength="20"/>
-            <td style="color:red;"><html:errors  property="email"/></td>
+            <html:text property="email" size="40" maxlength="40"/>
           </td>
         </tr>
           <td align="right">
             Mot de passe :
           </td>
           <td align="left">
-            <html:text property="password" size="20" maxlength="20"/>
-            <td style="color:red;"><html:errors  property="password"/></td>
+            <html:text property="password" size="40" maxlength="40"/>
           </td>
         </tr>
         <tr>

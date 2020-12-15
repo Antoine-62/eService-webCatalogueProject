@@ -23,7 +23,7 @@
             Code postal :
           </td>
           <td align="left">
-            <html:text property="code" size="20" maxlength="20"/>
+            <html:text property="code" size="40" maxlength="40"/>
           </td>
         </tr>
         <tr>
@@ -31,7 +31,7 @@
             Ville :
           </td>
           <td align="left">
-            <html:text property="ville" size="20" maxlength="20"/>
+            <html:text property="ville" size="40" maxlength="40"/>
           </td>
         </tr>
         <tr>
@@ -39,7 +39,7 @@
             Pays :
           </td>
           <td align="left">
-            <html:text property="pays" size="20" maxlength="20"/>
+            <html:text property="pays" size="40" maxlength="40"/>
           </td>
         </tr>
         <tr>

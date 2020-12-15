@@ -19,9 +19,7 @@
 			<li><a href = "login">Se connecter</a></li>		
 		  </c:when>
 		  <c:otherwise>
-		    <li><a href = "Inscription">Mon compte</a></li>
-		   	<li><a href = "Inscription">Consulter les ventes</a></li>
-		   	<li><a href = "Inscription">Consulter les utilisateurs</a></li>
+		    <li><a href = "user">Mon compte</a></li>
 		   	<li><a href = "logout">Déconnexion</a></li>
 		  </c:otherwise>
 		</c:choose>
