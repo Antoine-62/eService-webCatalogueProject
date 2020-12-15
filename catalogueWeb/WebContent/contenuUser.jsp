@@ -6,16 +6,15 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <!DOCTYPE html>
 <body bgcolor="white">
-<h1 class="titre">Rejoignez notre club de patate!</h1>
+<h1 class="titre">Votre profile</h1>
 <div class="registration">
-    <html:form action="validerEnregistrement">
       <table border="0" align="center">
         <tr>
           <td align="right">
             Nom :
           </td>
           <td align="left">
-            <html:text property="nom" size="40" maxlength="40"/>
+            ${beanUser.getNom()}
           </td>
         </tr>
         <tr>
@@ -23,7 +22,7 @@
             Prénom :
           </td>
           <td align="left">
-            <html:text property="prenom" size="40" maxlength="40"/>
+            ${beanUser.getPrenom()}
           </td>
         </tr>
         <tr>
@@ -31,7 +30,7 @@
             Email :
           </td>
           <td align="left">
-            <html:text property="email" size="40" maxlength="40"/>
+            ${beanUser.getEmail()}
           </td>
         </tr>
         <tr>
@@ -39,26 +38,50 @@
             Téléphone :
           </td>
           <td align="left">
-            <html:text property="phone" size="40" maxlength="40"/>
-          </td>
-        </tr>
-        <tr>
-          <td align="right">
-            Mot de passe :
-          </td>
-          <td align="left">
-            <html:text property="password" size="40" maxlength="40"/>
-          </td>
-        </tr>
-        <tr>
-          <td align="right">
-            <html:submit property="submit" value="Submit"/>
-          </td>
-          <td align="left">
-            <html:reset/>
+            ${beanUser.getTelephone()}
           </td>
         </tr>
       </table>
-    </html:form>
     </div>
+    
+    <h1 class="titre">Historique des commande</h1>
+<c:set var="user" value="${beanCommandes}" />
+<c:choose> 
+	<c:when test="${empty beanCommandes}">
+		<p>Vous n'avez encore rien commandé</p>	
+	</c:when>
+	<c:otherwise>
+<c:forEach var="command" items="${beanCommandes}">
+<div class="registration">
+      <table border="0" align="center">
+        <tr>
+          <td align="right">
+            Numéro de commande :
+          </td>
+          <td align="left">
+            ${command.getNoConfirmation()}
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            Adresse de livraison : 
+          </td>
+          <td align="left">
+            ${command.getAdresse()}, ${command.getCodepost()} ${command.getVille()} 
+            ${command.getPays()}
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            Montant :
+          </td>
+          <td align="left">
+            ${command.getMontant()}
+          </td>
+        </tr>
+      </table>
+    </div>
+</c:forEach>
+	</c:otherwise>
+</c:choose>
   </body>

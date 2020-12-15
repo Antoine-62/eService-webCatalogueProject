@@ -60,7 +60,9 @@ public class validationAction extends Action {
 				gestionCommandeBeanRemote remote= (gestionCommandeBeanRemote) context.lookup("ejb:"+appName+"/"+moduleName+"/"+beanName+"!"+viewClassName);
 				command=remote.createCommande(produitList);
 				ClientBean client = (ClientBean) session.getAttribute("beanUser");
+				command.setEmail(client.getEmail());
 				remote.validerCommande(command, adresse, codepost, ville, pays, client);
+				session.removeAttribute("MonPanier");
 				}
 			catch(Exception e) {
 				e.printStackTrace();

@@ -1,12 +1,16 @@
 package fr.eilco.ejb;
 
+import java.util.ArrayList;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import fr.eilco.façade.FacadeClient;
+import fr.eilco.façade.FacadeCommandeClient;
 import fr.eilco.model.ClientBean;
+import fr.eilco.model.CommandeClientBean;
 
 /**
  * Session Bean implementation class gestionClientBean
@@ -42,6 +46,12 @@ public class gestionClientBean implements gestionClientBeanRemote, gestionClient
 	public void enregistrementClient(ClientBean c) {
 		mc.persist(c);
 		System.out.println("Client Enregistre : "+c);
+	}
+	
+	public ArrayList<CommandeClientBean> getCommande(String id) {
+		FacadeCommandeClient façade = new FacadeCommandeClient(mc);
+		ArrayList<CommandeClientBean> commandes = (ArrayList<CommandeClientBean>) façade.findAllByClient(id);
+		return commandes;
 	}
 
 }
