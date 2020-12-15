@@ -20,21 +20,17 @@ import fr.eilco.model.ClientBean;
 import fr.eilco.struts.form.loginForm;
 
 public class loginAction extends Action {
-	@SuppressWarnings("deprecation")
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String resultat = null;
-		ActionErrors   errors    = new ActionErrors(); 
 		String email = ((loginForm) form).getEmail();
 		String pwd = ((loginForm) form).getPassword();
 		System.out.println("on regarde si les champs sont rempli");
 		
 		if(email.equals("")) {
 			resultat = "echec";
-			errors.add("email", new  ActionError("Champ non saisie")); 
 		}
 		else if(pwd.equals("")) {
 			resultat = "echec";
-			errors.add("password", new  ActionError("Champ non saisie")); 
 		}
 		else {
 			System.out.println("on regarde si le client existe");
@@ -77,11 +73,6 @@ public class loginAction extends Action {
 				e.printStackTrace();
 			}
 		}
-		
-		if (!errors.isEmpty())  
-	    { 
-	      saveErrors(request, errors);      
-	    } 
 		
 		return mapping.findForward(resultat);
 	}

@@ -9,17 +9,19 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Collection;
 import java.util.List;
+import fr.eilco.model.ClientBean;
 
 @Entity
 @Table(schema="Catalogweb", name="commande")
+@NamedQuery(name = "CommandeClientBean.findByCatIdClient", query = "SELECT c FROM CommandeClientBean c where c.email = :client_email")
 public class CommandeClientBean implements Serializable {
 	private int id;
-	private int numeroCommande;
 	private String adresse;
 	private String codepost;
 	private String ville;
@@ -27,7 +29,7 @@ public class CommandeClientBean implements Serializable {
 	private double aMontant;
 	private String aDateCreation;
 	private int aNoConfirmation;
-	private ClientBean aClientId;
+	private String email;
 	private List<ProduitCommandeBean> produits = new ArrayList<>();
 	
 	@Id
@@ -38,14 +40,6 @@ public class CommandeClientBean implements Serializable {
 	}
 	public void setId(int id){
 		this.id= id;
-	}
-	
-	@Column(name="numeroCommande")
-	public int getNumero(){
-		return numeroCommande;
-	}
-	public void setNumero(int numero){
-		this.numeroCommande= numero;
 	}
 	
 	@Column(name="adresse")
@@ -104,12 +98,12 @@ public class CommandeClientBean implements Serializable {
 		this.aNoConfirmation= pNoConfirmation;
 	}
 	
-	@ManyToOne(cascade = CascadeType.MERGE, fetch= FetchType.LAZY)
-	public ClientBean getClientId(){
-		return this.aClientId;
+	@Column(name="email")
+	public String getEmail(){
+		return this.email;
 	}
-	public void setClientId(ClientBean pClientId){
-		this.aClientId= pClientId;
+	public void setEmail(String pClientId){
+		this.email= pClientId;
 	}
 	
 	@OneToMany(mappedBy = "idCommand.commande", cascade = CascadeType.ALL, orphanRemoval = true)

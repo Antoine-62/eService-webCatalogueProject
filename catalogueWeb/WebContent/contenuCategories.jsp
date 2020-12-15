@@ -22,6 +22,8 @@
 				<c:forEach var="pBean" items="${beanCategorie2}">
 			      	<tr>
 			        	<td>${pBean.nom}</td>
+			        	<td>${pBean.prix} $</td>
+			        	<td>${pBean.description}</td>
 			        	<td> 
 			            	<button onclick="ajoutPanier(${pBean.id})">Ajouter au panier</button>
 			            </td>
